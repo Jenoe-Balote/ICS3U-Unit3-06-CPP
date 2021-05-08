@@ -10,13 +10,13 @@
 
 main() {
     // this function runs the "Number Guessing Game"
-    std::string numberGuessed;
+    std::string stringGuessed;
     int numberGuessed;
     int randomNumber;
 
     // input
     std::cout << "Enter a number between 0-9: ";
-    std::cin >> numberGuessed;
+    std::cin >> stringGuessed;
 
     // process
     std::random_device rseed;
@@ -24,19 +24,19 @@ main() {
     std::uniform_int_distribution<int> idist(0, 9);
     randomNumber = idist(rgen);
     try {
-        numberGuessed = std::stoi(numberGuessed);
+        numberGuessed = std::stoi(stringGuessed);
         if (numberGuessed == randomNumber) {
         // output
             std::cout << "You guessed correctly!" << std::endl;
         } else {
         // output
-            std::cout << "Wrong! the number is " << randomNumber << std::endl;
+            std::cout << "Incorrect, the number was " << randomNumber << std::endl;
         }
     }
     catch (std::invalid_argument) {
     // output
-        std::cout << "\n" << numberGuessed
+        std::cout << "\n" << stringGuessed
         << " is not a number at all!" << std::endl;
     }
-    std::cout << "\n\nDone."<< std::endl;
+    std::cout << "\n\nThanks for playing!"<< std::endl;
 }
